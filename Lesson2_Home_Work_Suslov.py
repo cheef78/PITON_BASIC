@@ -76,5 +76,34 @@ print ()
 print ()
 print ("Решение четвертой задачи уровня Normal")
 print ()
-lst = [1, 2, 4, 5, 6, 2, 5, 2,5,10]
+lst = [1, 2, 4, 5, 6, 2, 5, 2,5,10,10,10]
+lst2=[]
+lst3=[]
+lst_d=[]
+lst_n = []
+print ("Исходный список для преобразований =: ",lst)
+print ()
+
+lst = sorted(lst)
+for i in range(0,(len(lst)-1)):
+    if lst[i]!=lst[i+1]:
+       lst2.append(lst[i])
+lst2.append(lst[len(lst)-1])
+print ("Список, содержаший неповторяющиеся элементы исходного списка =: ",lst2)
+print ()
+
+
+'''
+for i in range(0,len(lst)-1):
+    if lst[i]!=lst[i+1]:
+       lst_d.append(lst[i+1])
+       lst_n.append(int(i+1))
+print (lst_d)
+print (lst_n)
+print (lst2)
+print (lst3)
+       
+    
+
         
+'''
