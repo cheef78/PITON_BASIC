@@ -67,7 +67,6 @@ def fibonacci(n, m):
 print(fibonacci(n, m))
 
 
-'''
 
 # Задача-2:
 # Напишите функцию, сортирующую принимаемый список по возрастанию.
@@ -80,23 +79,30 @@ print ("Решение второго задания уровня Нормал")
 print ()
 print ()
 #Generim origin_list
-import random
-origin_list=[]
 n = (input ("Введите необходимое количество элементов в случайном списке: "))
 print ()
-
+#n=10
 def list_sort (n):
-    for el in range(int(n)):
+    import random
+    origin_list=[]
+    origin_list1=[]
+    sort_list=[]
+    max_count=[]
+    max_countt=[]
+    for el in range(0,int(n)):
         origin_list.append(random.randint(-100,100))
-    return print ("Итоговый несортированный список, состоящий из " + str(n)+" случайных элементов: ",origin_list)
+        origin_list1.append(int(origin_list[int(el)]))
+    for el in range(0,(int(n)-1)):
+        for el1 in range ((int(el)+1),int(n)):
+            if int(origin_list[int(el)]) >= int(origin_list[int(el1)]):
+                max_el = int(origin_list[int(el1)])
+                min_el = int(origin_list[int(el)])
+                origin_list[int(el)]= max_el
+                origin_list[int(el1)] = min_el
+    return print ("Итоговый несортированный список, состоящий из " + str(n)+" случайных элементов: \n" + str(origin_list1) + "\nИтоговый сортированный по возрастанию список, состоящий из " + str(n)+" случайных элементов: \n" + str(origin_list))
 print (list_sort(n))
 
-
-
-def sort_to_max(origin_list):
-    pass
-
-sort_to_max([2, 10, -12, 2.5, 20, -11, 4, 4, 0])
+'''
 
 # Задача-3:
 # Напишите собственную реализацию стандартной функции filter.
