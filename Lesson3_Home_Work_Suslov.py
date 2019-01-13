@@ -74,6 +74,24 @@ print(fibonacci(n, m))
 # Для сортировки используйте любой алгоритм (например пузырьковый).
 # Для решения данной задачи нельзя использовать встроенную функцию и метод sort()
 
+print ()
+print ()
+print ("Решение второго задания уровня Нормал")
+print ()
+print ()
+#Generim origin_list
+import random
+origin_list=[]
+n = (input ("Введите необходимое количество элементов в случайном списке: "))
+print ()
+
+def list_sort (n):
+    for el in range(int(n)):
+        origin_list.append(random.randint(-100,100))
+    return print ("Итоговый несортированный список, состоящий из " + str(n)+" случайных элементов: ",origin_list)
+print (list_sort(n))
+
+
 
 def sort_to_max(origin_list):
     pass
