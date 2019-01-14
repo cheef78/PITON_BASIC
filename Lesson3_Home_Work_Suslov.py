@@ -99,7 +99,6 @@ def list_sort (n):
     return print ("Итоговый несортированный список, состоящий из " + str(n)+" случайных элементов: \n" + str(origin_list1) + "\nИтоговый сортированный по возрастанию список, состоящий из " + str(n)+" случайных элементов: \n" + str(origin_list))
 print (list_sort(n))
 
-'''
 
 # Задача-3:
 # Напишите собственную реализацию стандартной функции filter.
@@ -133,10 +132,6 @@ print ()
 def My_filter (key, origin_list):
     filter_list=[]
     for el in range (0, int(len(origin_list))):
-        '''if key.isnumeric()==True:
-            if int(origin_list[int(el)])==int(key):
-                filter_list.append(int(origin_list[int(el)]))
-        else:'''
         if str(origin_list[int(el)])==str(key):
             if origin_list[int(el)].isnumeric()==True:
                 filter_list.append(int(origin_list[int(el)]))
@@ -148,6 +143,12 @@ def My_filter (key, origin_list):
         return print ("Итоговая отфильтрованная последовательность: \n" + str(filter_list))
 print (My_filter (key, origin_list))
 
+'''
+print ()
+print ()
+print ("Решение третьего задания уровня Нормал")
+print ()
+print ()
             
             
         
