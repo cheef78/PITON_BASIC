@@ -1,6 +1,6 @@
 # Автор ____ Суслов Олег Алекчандрович_______:
 
-
+'''
 
 # Задание-1:
 # Напишите функцию, возвращающую ряд Фибоначчи с n-элемента до m-элемента.
@@ -142,7 +142,7 @@ def My_filter (key, origin_list):
     else:
         return print ("Итоговая отфильтрованная последовательность: \n" + str(filter_list))
 print (My_filter (key, origin_list))
-
+'''
 
 # Задача-4:
 # Даны четыре точки А1(х1, у1), А2(x2 ,у2), А3(x3 , у3), А4(х4, у4).
@@ -162,9 +162,9 @@ for el in (cone_list):
     y = input ("Введите координату Y точки " + el + " :")
     coord_list.append(int(y))
 print (coord_list)            
-if (int(coord_list[2])-int(coord_list[0]))!=0 and (int(coord_list[6])-int(coord_list[4]))!=0 and (int(coord_list[6])-int(coord_list[0]))!=0 and (int(coord_list[4])-int(coord_list[2]))!=0:
+if (int(coord_list[2])-int(coord_list[0]))!=0 and (int(coord_list[4])-int(coord_list[6]))!=0 and (int(coord_list[6])-int(coord_list[0]))!=0 and (int(coord_list[4])-int(coord_list[2]))!=0:
     Kab = (int(coord_list[3])-int(coord_list[1]))/(int(coord_list[2])-int(coord_list[0]))
-    Kdc = (int(coord_list[7])-int(coord_list[5]))/(int(coord_list[6])-int(coord_list[4]))
+    Kdc = (int(coord_list[5])-int(coord_list[7]))/(int(coord_list[4])-int(coord_list[6]))
     Kad = (int(coord_list[7])-int(coord_list[1]))/(int(coord_list[6])-int(coord_list[0]))
     Kbc = (int(coord_list[5])-int(coord_list[3]))/(int(coord_list[4])-int(coord_list[2]))
     if Kab==Kdc and Kad==Kbc and Kab!=Kad and Kab!=Kbc and Kdc!=Kad and Kdc!= Kbc:
@@ -172,15 +172,14 @@ if (int(coord_list[2])-int(coord_list[0]))!=0 and (int(coord_list[6])-int(coord_
     else:
         print("Данные точки НЕ ЯВЛЯЮТСЯ вершинами параллелограмма")
 else:
-    if ((int(coord_list[3])-int(coord_list[1]))==(int(coord_list[7])-int(coord_list[5]))) and ((int(coord_list[2])-int(coord_list[0]))== (int(coord_list[6])-int(coord_list[4]))):
-        Kad = (int(coord_list[7])-int(coord_list[1]))/(int(coord_list[6])-int(coord_list[0]))
-        Kbc = (int(coord_list[5])-int(coord_list[3]))/(int(coord_list[4])-int(coord_list[2]))
-        if Kad == Kbc:
-             print("Данные точки ЯВЛЯЮТСЯ вершинами параллелограмма (прямоугольника)")
+    if (int(coord_list[3])-int(coord_list[1]))==(int(coord_list[5])-int(coord_list[7])) and (int(coord_list[2])-int(coord_list[0]))==(int(coord_list[4])-int(coord_list[6])):
+        if (int(coord_list[7])-int(coord_list[1]))==(int(coord_list[5])-int(coord_list[3])) and (int(coord_list[6])-int(coord_list[0]))==(int(coord_list[4])-int(coord_list[2])):
+            print("Данные точки ЯВЛЯЮТСЯ вершинами параллелограмма (прямоугольника)")
         else:
              print("Данные точки НЕ ЯВЛЯЮТСЯ вершинами параллелограмма")
     else:
              print("Данные точки НЕ ЯВЛЯЮТСЯ вершинами параллелограмма")
+
     
 
 
