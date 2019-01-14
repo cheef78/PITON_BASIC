@@ -172,10 +172,18 @@ if (int(coord_list[2])-int(coord_list[0]))!=0 and (int(coord_list[6])-int(coord_
     else:
         print("Данные точки НЕ ЯВЛЯЮТСЯ вершинами параллелограмма")
 else:
+    if ((int(coord_list[3])-int(coord_list[1]))==(int(coord_list[7])-int(coord_list[5]))) and ((int(coord_list[2])-int(coord_list[0]))== (int(coord_list[6])-int(coord_list[4]))):
+        Kad = (int(coord_list[7])-int(coord_list[1]))/(int(coord_list[6])-int(coord_list[0]))
+        Kbc = (int(coord_list[5])-int(coord_list[3]))/(int(coord_list[4])-int(coord_list[2]))
+        if Kad == Kbc:
+             print("Данные точки ЯВЛЯЮТСЯ вершинами параллелограмма (прямоугольника)")
+        else:
+             print("Данные точки НЕ ЯВЛЯЮТСЯ вершинами параллелограмма")
+    else:
+             print("Данные точки НЕ ЯВЛЯЮТСЯ вершинами параллелограмма")
     
 
 
-    print ("Одна или более из сторон параллельны оси Х. Данная ветвь решения еще не реализована. Обратитесь к разработчику.")
 
     
 
