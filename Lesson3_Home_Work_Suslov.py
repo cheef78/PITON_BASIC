@@ -62,7 +62,7 @@ def fibonacci(n, m):
     else:
         for el in range (int(2),int(m)):
             fib.append((fib[el-2]+fib[el-1]))
-        return print ("Элементы ряда Фибоначчи от номера " + str (n) + " до номера " +  str (m)+ " = " + str(fib[(int(n)-1):int(m)]))
+        return print ("Элементы ряда Фибоначчи от номера " + str (n) + " до номера " +  str (m)+ " = \n" + str(fib[(int(n)-1):int(m)]))
     
 print(fibonacci(n, m))
 
@@ -81,14 +81,11 @@ print ()
 #Generim origin_list
 n = (input ("Введите необходимое количество элементов в случайном списке: "))
 print ()
-#n=10
 def list_sort (n):
     import random
     origin_list=[]
     origin_list1=[]
     sort_list=[]
-    max_count=[]
-    max_countt=[]
     for el in range(0,int(n)):
         origin_list.append(random.randint(-100,100))
         origin_list1.append(int(origin_list[int(el)]))
@@ -107,9 +104,17 @@ print (list_sort(n))
 # Задача-3:
 # Напишите собственную реализацию стандартной функции filter.
 # Разумеется, внутри нельзя использовать саму функцию filter.
+print ()
+print ()
+print ("Решение третьего задания уровня Нормал")
+print ()
+print ()
+n = int(input ("Введите количество элементов в последовательности: "))
+print ()
+
+var = int(input(" 1.Ввод последовательности с клавиатуры\n 2.Генерация числовой последовательности\n 3.Генерация текстовой последовательности\n Выберите вариант задания последовательности: "))
 
 
 # Задача-4:
 # Даны четыре точки А1(х1, у1), А2(x2 ,у2), А3(x3 , у3), А4(х4, у4).
-# Определить, будут ли они вершинами параллелограмма.
-
+# Определить, будут ли они вершинами параллелограмма
