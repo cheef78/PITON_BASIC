@@ -109,10 +109,50 @@ print ()
 print ("Решение третьего задания уровня Нормал")
 print ()
 print ()
+origin_list=[]
+import random
 n = int(input ("Введите количество элементов в последовательности: "))
 print ()
-
 var = int(input(" 1.Ввод последовательности с клавиатуры\n 2.Генерация числовой последовательности\n 3.Генерация текстовой последовательности\n Выберите вариант задания последовательности: "))
+if var==1:
+    for el in range (0,int(n)):
+        k = input ("Введите в последовательность элемент №:"+ str(el)+" ")
+        origin_list.append(k)
+if var==2:
+    for el in range (0,int(n)):
+        origin_list.append(str(random.randint(-100,100)))
+if var==3:
+    for el in range (0,int(n)):
+        k= random.choice("йцукенгшщзхъфывапролджэячсмитьбю")
+        origin_list.append(k)
+print ()
+print ("Итоговая неотфильтрованная последовательность, состоящая из " + str(n)+" элементов: \n" + str(origin_list))
+print ()
+key = input ("Введите значение фильтра (тип фильтра - 'РАВНО'): ")
+print ()
+def My_filter (key, origin_list):
+    filter_list=[]
+    for el in range (0, int(len(origin_list))):
+        '''if key.isnumeric()==True:
+            if int(origin_list[int(el)])==int(key):
+                filter_list.append(int(origin_list[int(el)]))
+        else:'''
+        if str(origin_list[int(el)])==str(key):
+            if origin_list[int(el)].isnumeric()==True:
+                filter_list.append(int(origin_list[int(el)]))
+            else:
+                filter_list.append(str(origin_list[int(el)]))
+    if len(filter_list)==0:
+        return print ("Элементы, удовлетворяющие условию фильтрации,\nв исходной последовательности ОТСУТСТВУЮТ!!!!")
+    else:
+        return print ("Итоговая отфильтрованная последовательность: \n" + str(filter_list))
+print (My_filter (key, origin_list))
+
+            
+            
+        
+
+    
 
 
 # Задача-4:
