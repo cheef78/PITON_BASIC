@@ -127,26 +127,34 @@ print ()
 # Найдите и выведите самую длинную последовательность одинаковых цифр
 # в вышезаполненном файле.
 
+print ()
+print ()
+print ("Решение третьей задачи. Уровень - Нормал.")
+print ()
+
 import random
 list_1 =''
 list_2=''
 list_3 = []
+list_4=[]
 for el in range(1,2500):
     list_1=list_1+ str(random.randint(0, 9))
-print (list_1)
 f = open('text_1.txt', 'w')
 f.write(list_1)
 f.close()
-
 f = open('text_1.txt')
 list_2 = f.read()
 f.close()
-print (list_2)
-for el in range (0,9):
-    pat = "'["+str(el)+"]+'"
-    print (pat)
-    list_3.append(re.findall(pat, list_2))
-print (list_3)
-  
+print ("Сгенерированное 2500-значное произвольное число из файла:\n\n", list_2)
+for el in range (0,10):
+    pat = "["+str(el)+"]{2,5000000}"
+    list_3.append((re.findall(pat, list_2)))
+for el1 in list_3:
+    for el2 in range(len(el1)):
+        list_4.append(int(el1[el2]))
 
+print ()
+print ()
+print ("Максимальная последовательность чисел в исходном файле:= ", max(list_4))
+        
 
