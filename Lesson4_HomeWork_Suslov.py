@@ -75,7 +75,7 @@ print ()
     
 
 
-'''    
+  
 # Задание-2:
 # Вывести символы в верхнем регистре, слева от которых находятся
 # два символа в нижнем регистре, а справа - два символа в верхнем регистре.
@@ -99,6 +99,26 @@ line_2 = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysm'\
        'uXBqHFjvihuNGEEFsfnMXTfptvIOlhKhyYwxLnqOsBdGvnuyEZIheApQGOXWeXoLWiDQN'\
        'JFaXiUWgsKQrDOeZoNlZNRvHnLgCmysUeKnVJXPFIzvdDyleXylnKBfLCjLHntltignbQ'\
        'oiQzTYwZAiRwycdlHfyHNGmkNqSwXUrxGC'
+print ()
+print ()
+print ("Решение второй задачи. Уровень - Нормал.")
+print ()
+print ("Вариант c использованием функции Re")
+line2 = ''
+line3 = []
+line2 = re.findall('[a-z][a-z][A-Z]{3,5000000}', line_2)
+for el in line2:
+    line2 = el[2:(len(el)-2)]
+    line3.append(line2)
+print ()
+print ("Исходный массив:\n", line_2)
+print ()
+print ()
+print ("Массив из символов в верхнем регистре, слева от которых находятся\nдва символа в нижнем регистре, а справа - два символа в верхнем регистре:\n", line3)
+print ()
+print ()
+
+
 
 # Задание-3:
 # Напишите скрипт, заполняющий указанный файл (самостоятельно задайте имя файла)
@@ -106,4 +126,4 @@ line_2 = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysm'\
 # 2500-значное произвольное число.
 # Найдите и выведите самую длинную последовательность одинаковых цифр
 # в вышезаполненном файле.
-'''
+
