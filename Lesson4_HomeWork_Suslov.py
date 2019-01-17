@@ -31,7 +31,7 @@ line = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysmNO'\
 line2 = ''
 
 line3 = []
-
+'''
 for el in range(1,(len(line))):
     if line[el-1].islower()and line[el].islower():
         line2 = str(line2) + str(line[el-1])
@@ -55,7 +55,13 @@ print ()
 print ()
 print ("Массив из символы в нижнем регистре, которые находятся\nвокруг 1 или более символов в верхнем регистре:\n", line3)
 print ()
-    
+print ()
+print ("Вариант без использования функции Re")
+print ()
+'''
+import re
+line3 = re.findall(+'[a-z]', line)
+print(line3) 
     
     
 
