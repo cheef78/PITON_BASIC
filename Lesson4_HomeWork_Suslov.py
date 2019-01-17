@@ -127,3 +127,26 @@ print ()
 # Найдите и выведите самую длинную последовательность одинаковых цифр
 # в вышезаполненном файле.
 
+import random
+list_1 =''
+list_2=''
+list_3 = []
+for el in range(1,2500):
+    list_1=list_1+ str(random.randint(0, 9))
+print (list_1)
+f = open('text_1.txt', 'w')
+f.write(list_1)
+f.close()
+
+f = open('text_1.txt')
+list_2 = f.read()
+f.close()
+print (list_2)
+for el in range (0,9):
+    pat = "'["+str(el)+"]+'"
+    print (pat)
+    list_3.append(re.findall(pat, list_2))
+print (list_3)
+  
+
+
