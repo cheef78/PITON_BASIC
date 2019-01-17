@@ -6,7 +6,11 @@
 # Решить задачу двумя способами: с помощью re и без.
 
 
-
+print ()
+print ()
+print ("Решение первой задачи. Уровень - Нормал.")
+print ()
+print ("Вариант без использования функции Re")
 
 line = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysmNO'\
        'GIPHpEMujalpPLNzRWXfwHQqwksrFeipEUlTLeclMwAoktKlfUBJHPsnawvjPhfgewVzK'\
@@ -45,8 +49,12 @@ for el in range(1,(len(line))):
         line2 = str(line2) + str(line[len(line)-1])
         line3.append(line2)
         line2=''
-
-print (line3)
+print ()
+print ("Исходный массив:\n", line)
+print ()
+print ()
+print ("Массив из символы в нижнем регистре, которые находятся\nвокруг 1 или более символов в верхнем регистре:\n", line3)
+print ()
     
     
     
