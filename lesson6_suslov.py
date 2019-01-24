@@ -47,7 +47,10 @@ class Student:
 
     def get_klass(self):
         return self.klass
-    
+
+    def get_subjj(self):
+        return self.subjj
+
 class Teacher:
     def __init__(self, fname, name, sname, subjname):
         self.fname = fname
@@ -61,6 +64,8 @@ class Teacher:
     def get_fio(self):
         return self.fname + ' '+ self.name[0]+ '.' + self.sname[0]+ '.'
 
+    def get_subjname(self):
+        return self.subjname
 
 
 h1 = Human("Иванов","Иван","Иванович",)
@@ -90,13 +95,14 @@ students = [Student("Иванов","Петр","Сергеевич",Pearnts[0],Pe
          Student("Зайцева","Ирина","Сергеевна",Pearnts[10],Pearnts[11],"10Д",['математика', 'русский', 'литература', 'ин.яз', 'физика', 'химия']),
          Student("Кошкин","Петр","Сергеевич",Pearnts[12],Pearnts[13],"11Ж",['математика', 'русский', 'литература', 'ин.яз', 'физика','химия','биология'])]
 
-Teachers = [Teacher("Уваров","Петр","Иванович", ['математика']),
-        Teacher("Санина","Алена","Игоревна",['русский']),
-        Teacher("Сатанеев","Михаил","Иванович", ['литература']),
-        Teacher("Шемаханская","Валентина","Петровна", ['ин.яз']),  
-        Teacher("Брыль","Семен","Иванович", ['физика']),
-        Teacher("Марзина","Елена","Петровна", ['химия']),
-        Teacher("Ковров","Юрий","Станилавович", ['биология'])]
+Teachers = [Teacher("Уваров","Петр","Иванович",'математика'),
+        Teacher("Санина","Алена","Игоревна",'русский'),
+        Teacher("Сатанеев","Михаил","Иванович", 'литература'),
+        Teacher("Шемаханская","Валентина","Петровна", 'ин.яз'),  
+        Teacher("Брыль","Семен","Иванович", 'физика'),
+        Teacher("Марзина","Елена","Петровна", 'химия'),
+        Teacher("Ковров","Юрий","Станилавович", 'биология'),
+        Teacher("Камнеедов","Геннадий","Борисович", 'геометрия')]
 
 list=[]
 
@@ -117,3 +123,31 @@ if list == []:
     list.append("Учеников в таком классе нет или нет такого класса") 
 print("Список школьников, которые обучаются в классе " + str(klas)+ ":\n ", list)
 print ()
+
+
+shkol=[]
+info=[]
+list=[]
+for el in range(0, len(students)):
+    list.append((str(el+1)+". " + str(students[int(el)].get_fio())))
+
+print("Список школьников, которые обучаются в школе:\n")
+for el in range(0, len(students)):
+    print(list[int(el)])
+print()
+
+shkol = int(input ("Введите номер ученика для вывода информации по предметам: "))
+
+list1=[]
+for el1 in range(0, len(Teachers)):
+    if (Teachers[int(el1)].get_subjname() in students[shkol-1].get_subjj())== True:
+        list1.append(Teachers[int(el1)].get_fio())
+    
+
+
+print(str(students[shkol-1].get_fio())+"\nКласс: "+ str(students[shkol-1].get_klass())+"\nУчителя: "+ str(list1)+"\nПредметы: "+ str(students[shkol-1].get_subjj()))
+              
+
+
+
+
