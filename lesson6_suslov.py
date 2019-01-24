@@ -17,11 +17,11 @@
 # 5. Получить список всех Учителей, преподающих в указанном классе
 class Human:
 
-    def __init__(self, fname, name, sname, role):
+    def __init__(self, fname, name, sname):
         self.fname = fname
         self.name=name
         self.sname = sname
-        self.role = role
+        
 
     def get_fulln(self):
         return self.fname + ' '+ self.name+ ' ' + self.sname
@@ -29,21 +29,79 @@ class Human:
     def get_fio(self):
         return self.fname + ' '+ self.name[0]+ '.' + self.sname[0]+ '.'
 
-class Student(Human):
-    def __init__(self, fname, name, sname, role, pear1, pear2, klass, subjj):
-        super().__init__(self, fname, name, sname, role)
+class Student:
+    def __init__(self, fname, name, sname, pear1, pear2, klass, subjj):
+        self.fname = fname
+        self.name=name
+        self.sname = sname
         self.pear1 = pear1
         self.pear2 = pear2
         self.klass = klass
         self.subjj = subjj
+
+    def get_fulln(self):
+        return self.fname + ' '+ self.name+ ' ' + self.sname
+
+    def get_fio(self):
+        return self.fname + ' '+ self.name[0]+ '.' + self.sname[0]+ '.'
+
+    def get_klass(self):
+        return self.klass
     
-class Teacher(Human):
-    def __init__(self, fname, name, sname, role, subjname):
-        super().__init__(self, fname, name, sname, role)
+class Teacher:
+    def __init__(self, fname, name, sname, subjname):
+        self.fname = fname
+        self.name=name
+        self.sname = sname
         self.subjname = subjname
 
+    def get_fulln(self):
+        return self.fname + ' '+ self.name+ ' ' + self.sname
 
-h1 = Human("Иванов","Иван","Иванович","учитель")
+    def get_fio(self):
+        return self.fname + ' '+ self.name[0]+ '.' + self.sname[0]+ '.'
+
+
+
+h1 = Human("Иванов","Иван","Иванович",)
 print (h1.get_fulln())
 print (h1.get_fio())
+
+Pearnts = [Human("Иванов","Сергей","Иванович"),
+        Human("Иванова","Анна","Петровна"),
+        Human("Сидоров","Сергей","Иванович"),
+        Human("Сидорова","Анна","Петровна"),  
+        Human("Петров","Сергей","Иванович"),
+        Human("Петрова","Анна","Петровна"),
+        Human("Соколов","Сергей","Иванович"),
+        Human("Соколова","Анна","Петровна"),
+        Human("Чижов","Сергей","Иванович"),
+        Human("Чижова","Анна","Петровна"),
+        Human("Зайцев","Сергей","Иванович"),
+        Human("Зайцева","Анна","Петровна"),
+        Human("Кошкин","Сергей","Иванович"),
+        Human("Кошкина","Анна","Петровна")]
+
+students = [Student("Иванов","Петр","Сергеевич",Pearnts[0],Pearnts[1],"1Б",['математика', 'русский', 'литература']),
+         Student("Сидорова","Анна","Сергеевна",Pearnts[2],Pearnts[3],"3В",['математика', 'русский', 'литература', 'Физкультура']),
+         Student("Петров","Петр","Сергеевич",Pearnts[4],Pearnts[5],"5Е",['математика', 'русский', 'литература','геометрия']),
+         Student("Соколова","Светлана","Сергеевна",Pearnts[6],Pearnts[7],"7Г",['математика', 'русский', 'литература', 'ин.яз']),
+         Student("Чижов","Петр","Сергеевич",Pearnts[8],Pearnts[9],"9А",['математика', 'русский', 'литература', 'ин.яз', 'физика']),
+         Student("Зайцева","Ирина","Сергеевна",Pearnts[10],Pearnts[11],"10Д",['математика', 'русский', 'литература', 'ин.яз', 'физика', 'химия']),
+         Student("Кошкин","Петр","Сергеевич",Pearnts[12],Pearnts[13],"11Ж",['математика', 'русский', 'литература', 'ин.яз', 'физика','химия','биология'])]
+
+Teachers = [Teacher("Уваров","Петр","Иванович", ['математика']),
+        Teacher("Санина","Алена","Игоревна",['русский']),
+        Teacher("Сатанеев","Михаил","Иванович", ['литература']),
+        Teacher("Шемаханская","Валентина","Петровна", ['ин.яз']),  
+        Teacher("Брыль","Семен","Иванович", ['физика']),
+        Teacher("Марзина","Елена","Петровна", ['химия']),
+        Teacher("Ковров","Юрий","Станилавович", ['биология'])]
+
+list=[]
+
+for el in range(0, len(students)):
+    list.append((students[int(el)].get_klass()))
+print("Перечень классов, в которых обучаются студенты:\n ", list)
+    
 
