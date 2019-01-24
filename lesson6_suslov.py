@@ -15,3 +15,35 @@
 #  (Ученик --> Класс --> Учителя --> Предметы)
 # 4. Узнать ФИО родителей указанного ученика
 # 5. Получить список всех Учителей, преподающих в указанном классе
+class Human:
+
+    def __init__(self, fname, name, sname, role):
+        self.fname = fname
+        self.name=name
+        self.sname = sname
+        self.role = role
+
+    def get_fulln(self):
+        return self.fname + ' '+ self.name+ ' ' + self.sname
+
+    def get_fio(self):
+        return self.fname + ' '+ self.name[0]+ '.' + self.sname[0]+ '.'
+
+class Student(Human):
+    def __init__(self, fname, name, sname, role, pear1, pear2, klass, subjj):
+        super().__init__(self, fname, name, sname, role)
+        self.pear1 = pear1
+        self.pear2 = pear2
+        self.klass = klass
+        self.subjj = subjj
+    
+class Teacher(Human):
+    def __init__(self, fname, name, sname, role, subjname):
+        super().__init__(self, fname, name, sname, role)
+        self.subjname = subjname
+
+
+h1 = Human("Иванов","Иван","Иванович","учитель")
+print (h1.get_fulln())
+print (h1.get_fio())
+
