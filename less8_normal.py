@@ -1,5 +1,6 @@
 import sys
 import random
+import curses
 
 
 print ()
@@ -92,15 +93,34 @@ for el in range (1,26):
     all.append(int(el))
 
 print(" *  *  *  *  *  * * * *")
-print(f" *  {all[0]}   {all[1]}   {all[2]}   {all[3]}  {all[4]}  *")
+print(f" *  {all[0]}   {all[1]}   {all[2]}   {all[3]}   {all[4]}  *")
 print(f" *  {all[5]}   {all[6]}   {all[7]}   {all[8]}  {all[9]} *")
 print(f" * {all[10]}  {all[11]}  {all[12]}  {all[13]}  {all[14]} *")
 print(f" * {all[15]}  {all[16]}  {all[17]}  {all[18]}  {all[19]} *")
 print(f" * {all[20]}  {all[21]}  {all[22]}  {all[23]}  {all[24]} *")
 print(" *  *  *  *  *  * * * *")
+
+
+for el1 in range (1,28):
+    num = int(input("Игрок "+plrname1+ "введите номер ячейки, куда хотите поставить" + plrchar1))
+    all[num-1]=plrchar1
+    print(" *  *  *  *  *  * * * *")
+    print(f" *  {all[0]}   {all[1]}   {all[2]}   {all[3]}   {all[4]}  *")
+    print(f" *  {all[5]}   {all[6]}   {all[7]}   {all[8]}  {all[9]} *")
+    print(f" * {all[10]}  {all[11]}  {all[12]}  {all[13]}  {all[14]} *")
+    print(f" * {all[15]}  {all[16]}  {all[17]}  {all[18]}  {all[19]} *")
+    print(f" * {all[20]}  {all[21]}  {all[22]}  {all[23]}  {all[24]} *")
+    print(" *  *  *  *  *  * * * *")
+
+
+
+
 print("Извините, но дальше код не работает.\nЕсли вы хотите продолжения данного проекта,\nто обратитесь к КИВИКошельку Разработчика.\nЗаранее спасибо!!")
 print("")
-sys.exit(0)
+#sys.exit(0)
+
+
+
 
 
 Viigr1 = [1,2,3,4,5]
