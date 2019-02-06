@@ -231,19 +231,17 @@ while len(plrnumbAll) <= 25:
             print ("ИГРОК "+ plrname1 + " ПОЗДРАВЛЯЕМ ВАС! ВЫ ВЫИГРАЛИ!!! УРА!!!")
             sys.exit(0)
 
-    el1 = el1+1
+    el2 = el1+1
     print (plrnumb2)
-    print (el1)
+    print (el2)
     plrnumbAll= plrnumb1+plrnumb2
     plrnumbAll=sorted(plrnumbAll)
     print (plrnumbAll)
+    print (len(all1))
     print (len(plrnumbAll))
-    for el in range (0,1):
-        if len(plrnumbAll)+1>=6:
-            print("УВАЖАЕМЫЕ ИГРОКИ! ИЗВИНИТЕ, НО БОЕВАЯ НИЧЬЯ!!!\nПОБЕДИЛА ДРУЖБА!! СПАСИБО ЗА ИГРУ!!")
-            sys.exit(0)
-        else:
-            print ("Я захожу в этот цикл")
+    if el2>=5:
+        print("УВАЖАЕМЫЕ ИГРОКИ! ИЗВИНИТЕ, НО БОЕВАЯ НИЧЬЯ!!!\nПОБЕДИЛА ДРУЖБА!! СПАСИБО ЗА ИГРУ!!")
+        sys.exit(0)
             
     
         
