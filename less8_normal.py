@@ -1,6 +1,8 @@
 import sys
 import random
 import curses
+import time
+
 
 Viigr1 = [1,2,3,4,5]
 Viigr2 = [6,7,8,9,10]
@@ -27,8 +29,25 @@ viigrAll.append(Viigr9)
 viigrAll.append(Viigr10)
 viigrAll.append(Viigr11)
 viigrAll.append(Viigr12)
-for el in range (0,12):
-    print (viigrAll[int(el)])
+
+def pole (massiv):
+
+    print()
+    print("  ------------------------- ")
+    print(f" | {massiv[0]} | {massiv[1]} | {massiv[2]} | {massiv[3]} | {massiv[4]} |")
+    print ("  ------------------------- ")    
+    print(f" | {massiv[5]} | {massiv[6]} | {massiv[7]} | {massiv[8]} | {massiv[9]} |")
+    print ("  ------------------------- ")
+    print(f" | {massiv[10]} | {massiv[11]} | {massiv[12]} | {massiv[13]} | {massiv[14]} |")
+    print ("  ------------------------- ")
+    print(f" | {massiv[15]} | {massiv[16]} | {massiv[17]} | {massiv[18]} | {massiv[19]} |")
+    print ("  ------------------------- ")
+    print(f" | {massiv[20]} | {massiv[21]} | {massiv[22]} | {massiv[23]} | {massiv[24]} |")
+    print("  ------------------------- ")
+    print ()
+
+all1 = [' 1',' 2',' 3',' 4',' 5',' 6',' 7',' 8',' 9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25']
+
     
 print ()
 print ()
@@ -58,7 +77,7 @@ if ident  ==1:
     identname = "Человек vs Человек"
     plrname1 = str(input("Введите имя первого игрока: "))
     print ()
-    plrside1 = int(input("Пожалуйста,выберите сторону,за которую будет играть игрок:\n1.Крестики (ходят первыми)\n2.Нолики (ходят вторыми)\n\nВведите 1 или 2: "))
+    plrside1 = int(input("Пожалуйста,выберите сторону,за которую будет играть игрок:\n1.Крестики\n2.Нолики\n\nВведите 1 или 2: "))
     print ()
     plrname2 = str(input("Введите имя второго игрока: "))
     if plrside1 == 1:
@@ -72,11 +91,11 @@ if ident  ==1:
 
 if ident  ==2:
     identname = "Человек vs Компьютер"
-    plrname1 = str(input("Введите имя первого игрока: "))
+    plrname1 = str(input("Введите имя первого игрока - Человека: "))
     print ()
-    plrside1 = int(input("Пожалуйста,выберите сторону,за которую будет играть игрок:\n1.Крестики (ходят первыми)\n2.Нолики (ходят вторыми)\n\nВведите 1 или 2: "))
+    plrside1 = int(input("Пожалуйста,выберите сторону,за которую будет играть игрок:\n1.Крестики\n2.Нолики\n\nВведите 1 или 2: "))
     print ()
-    plrname2 = "Альтрон"
+    plrname2 = "Джарвис"
     if plrside1 == 1:
         plrside2=int(2)
         plrchar1 = " X"
@@ -115,133 +134,244 @@ print ("Отлично!! Начинаем ИГРАТЬ !!\n(для выхода 
 print ()
 print ()
 
-all1 = []
-for el in range (1,26):
-    all1.append(int(el))
-
-print(" *  *  *  *  *  * * * *")
-print(f" *  {all1[0]}   {all1[1]}   {all1[2]}   {all1[3]}   {all1[4]}  *")
-print(f" *  {all1[5]}   {all1[6]}   {all1[7]}   {all1[8]}  {all1[9]} *")
-print(f" * {all1[10]}  {all1[11]}  {all1[12]}  {all1[13]}  {all1[14]} *")
-print(f" * {all1[15]}  {all1[16]}  {all1[17]}  {all1[18]}  {all1[19]} *")
-print(f" * {all1[20]}  {all1[21]}  {all1[22]}  {all1[23]}  {all1[24]} *")
-print(" *  *  *  *  *  * * * *")
 
 plrnumb1=[]
 plrnumb2=[]
 plrnumbAll=[]
-el1=0
-Priznak = False
-while len(plrnumbAll) <= 25:
 
-    num = 0
-    num = (input("Игрок_"+plrname1+ "_введите номер ячейки, куда хотите поставить_" + plrchar1+"_: "))
+if ident ==1:
+    pole(all1)
+    for i in range (1,26):
+        num = 0
+        num = (input("Игрок_"+plrname1+ "_введите номер ячейки, куда хотите поставить_" + plrchar1+"_: "))
 
-    priznak = False
-    while priznak==False:
-        if num.isnumeric()==True and plrnumbAll.count(int(num)) == 0 and int(num)<=25 and int(num)>0:
-           priznak=True
-        else:
-            if num == "Q" or num == "q":
+        priznak = False
+        while priznak==False:
+            if num.isnumeric()==True and plrnumbAll.count(int(num)) == 0 and int(num)<=25 and int(num)>0:
+               priznak=True
+            else:
+                if num == "Q" or num == "q":
+                    print("СПАСИБО ЗА ИГРУ!!\n ДО НОВЫХ ВСТРЕЧ")
+                    sys.exit(0)
+                priznak = False
+                print ()
+                print ("Ошибка ввода номера ячейки:")
+                print ("-Было введено не число\n-Эта ячейка уже занята\n-Введенное значение вне допустимого диапазона")
+                print ("Повторите ввод")
+                print ()
+                pole(all1)
+            
+                num = (input("Игрок_"+plrname1+ "_введите номер ячейки, куда хотите поставить_" + plrchar1+"_: "))
+
+        num = int(num)
+
+        all1[num-1]=plrchar1
+
+        pole(all1)
+
+        plrnumb1.append(int(num))
+        plrnumb1=sorted(plrnumb1)
+        for el5 in range (0,12):
+            if set(viigrAll[int(el5)]).issubset(plrnumb1)==True:# Входит ли list_1 в list_2 ?
+                print ("ИГРОК "+ plrname1 + " ПОЗДРАВЛЯЕМ ВАС! ВЫ ВЫИГРАЛИ!!! УРА!!!")
+                print("СПАСИБО ЗА ИГРУ!!\n ДО НОВЫХ ВСТРЕЧ")
                 sys.exit(0)
-            priznak = False
-            print ()
-            print ("Ошибка ввода номера ячейки:")
-            print ("-Было введено не число\n-Эта ячейка уже занята\n-Введенное значение вне допустимого диапазона")
-            print ("Повторите ввод")
-            print ()
-            print(" *  *  *  *  *  * * * *")
-            print(f" *  {all1[0]}   {all1[1]}   {all1[2]}   {all1[3]}   {all1[4]}  *")
-            print(f" *  {all1[5]}   {all1[6]}   {all1[7]}   {all1[8]}  {all1[9]} *")
-            print(f" * {all1[10]}  {all1[11]}  {all1[12]}  {all1[13]}  {all1[14]} *")
-            print(f" * {all1[15]}  {all1[16]}  {all1[17]}  {all1[18]}  {all1[19]} *")
-            print(f" * {all1[20]}  {all1[21]}  {all1[22]}  {all1[23]}  {all1[24]} *")
-            print(" *  *  *  *  *  * * * *")
-            num = (input("Игрок_"+plrname1+ "_введите номер ячейки, куда хотите поставить_" + plrchar1+"_: "))
-
-    num = int(num)
-
-    all1[num-1]=plrchar1
-    print(" *  *  *  *  *  * * * *")
-    print(f" *  {all1[0]}   {all1[1]}   {all1[2]}   {all1[3]}   {all1[4]}  *")
-    print(f" *  {all1[5]}   {all1[6]}   {all1[7]}   {all1[8]}  {all1[9]} *")
-    print(f" * {all1[10]}  {all1[11]}  {all1[12]}  {all1[13]}  {all1[14]} *")
-    print(f" * {all1[15]}  {all1[16]}  {all1[17]}  {all1[18]}  {all1[19]} *")
-    print(f" * {all1[20]}  {all1[21]}  {all1[22]}  {all1[23]}  {all1[24]} *")
-    print(" *  *  *  *  *  * * * *")
-
-    plrnumb1.append(int(num))
-    plrnumb1=sorted(plrnumb1)
-    for el in range (0,12):
-        if set(viigrAll[int(el)]).issubset(plrnumb1)==True:# Входит ли list_1 в list_2 ?
-            print ("ИГРОК "+ plrname1 + " ПОЗДРАВЛЯЕМ ВАС! ВЫ ВЫИГРАЛИ!!! УРА!!!")
+        plrnumbAll= plrnumb1+plrnumb2
+        plrnumbAll=sorted(plrnumbAll)
+    
+        if (len(plrnumbAll)) == 25:
+            print("УВАЖАЕМЫЕ ИГРОКИ! ИЗВИНИТЕ, НО БОЕВАЯ НИЧЬЯ!!!\nПОБЕДИЛА ДРУЖБА!! СПАСИБО ЗА ИГРУ!!\n ДО НОВЫХ ВСТРЕЧ")
             sys.exit(0)
-    print (plrnumb1)
     
-    
-    el1 = el1+1
-    print (el1)
-    plrnumbAll= plrnumb1+plrnumb2
-    plrnumbAll=sorted(plrnumbAll)
-    print (plrnumbAll)
-    print (len(plrnumbAll))
-    print (len(all1))
 
-    num = 0
-    num = (input("Игрок_"+plrname2+ "_введите номер ячейки, куда хотите поставить_" + plrchar2+"_: "))
+        num = 0
+        num = (input("Игрок_"+plrname2+ "_введите номер ячейки, куда хотите поставить_" + plrchar2+"_: "))
     
-    priznak = False
-    while priznak==False:
-        if num.isnumeric()==True and plrnumbAll.count(int(num)) == 0 and int(num)<=25 and int(num)>0 :
-           priznak=True
-        else:
-            if num == "Q" or num == "q":
-                sys.exit(0)
-            priznak = False
-            print ()
-            print ("Ошибка ввода номера ячейки:")
-            print ("-Было введено не число\n-Эта ячейка уже занята\n-Введенное значение вне допустимого диапазона")
-            print ("Повторите ввод")
-            print ()
+        priznak = False
+        while priznak==False:
+            if num.isnumeric()==True and plrnumbAll.count(int(num)) == 0 and int(num)<=25 and int(num)>0:
+               priznak=True
+            else:
+                if num == "Q" or num == "q":
+                    print("СПАСИБО ЗА ИГРУ!!\n ДО НОВЫХ ВСТРЕЧ")
+                    sys.exit(0)
+                priznak = False
+                print ()
+                print ("Ошибка ввода номера ячейки:")
+                print ("-Было введено не число\n-Эта ячейка уже занята\n-Введенное значение вне допустимого диапазона")
+                print ("Повторите ввод")
+                print ()
+
+                pole(all1)
            
-            print(" *  *  *  *  *  * * * *")
-            print(f" *  {all1[0]}   {all1[1]}   {all1[2]}   {all1[3]}   {all1[4]}  *")
-            print(f" *  {all1[5]}   {all1[6]}   {all1[7]}   {all1[8]}  {all1[9]} *")
-            print(f" * {all1[10]}  {all1[11]}  {all1[12]}  {all1[13]}  {all1[14]} *")
-            print(f" * {all1[15]}  {all1[16]}  {all1[17]}  {all1[18]}  {all1[19]} *")
-            print(f" * {all1[20]}  {all1[21]}  {all1[22]}  {all1[23]}  {all1[24]} *")
-            print(" *  *  *  *  *  * * * *")
+                num = (input("Игрок_"+plrname2+ "_введите номер ячейки, куда хотите поставить_" + plrchar2+"_: "))
 
-            num = (input("Игрок_"+plrname2+ "_введите номер ячейки, куда хотите поставить_" + plrchar2+"_: "))
+        num = int(num)
+        all1[num-1]=plrchar2
 
-    num = int(num)
-    all1[num-1]=plrchar2
-    print(" *  *  *  *  *  * * * *")
-    print(f" *  {all1[0]}   {all1[1]}   {all1[2]}   {all1[3]}   {all1[4]}  *")
-    print(f" *  {all1[5]}   {all1[6]}   {all1[7]}   {all1[8]}  {all1[9]} *")
-    print(f" * {all1[10]}  {all1[11]}  {all1[12]}  {all1[13]}  {all1[14]} *")
-    print(f" * {all1[15]}  {all1[16]}  {all1[17]}  {all1[18]}  {all1[19]} *")
-    print(f" * {all1[20]}  {all1[21]}  {all1[22]}  {all1[23]}  {all1[24]} *")
-    print(" *  *  *  *  *  * * * *")
+        pole(all1)
 
-    plrnumb2.append(int(num))
-    plrnumb2=sorted(plrnumb2)
-    for el in range (0,12):
-        if set(viigrAll[int(el)]).issubset(plrnumb2)==True:# Входит ли list_1 в list_2 ?
-            print ("ИГРОК "+ plrname1 + " ПОЗДРАВЛЯЕМ ВАС! ВЫ ВЫИГРАЛИ!!! УРА!!!")
+        plrnumb2.append(int(num))
+        plrnumb2=sorted(plrnumb2)
+        for el4 in range (0,12):
+            if set(viigrAll[int(el4)]).issubset(plrnumb2)==True:# Входит ли list_1 в list_2 ?
+                print ("ИГРОК "+ plrname2 + " ПОЗДРАВЛЯЕМ ВАС! ВЫ ВЫИГРАЛИ!!! УРА!!!")
+                print("СПАСИБО ЗА ИГРУ!!\n ДО НОВЫХ ВСТРЕЧ")
+                sys.exit(0)
+
+        plrnumbAll= plrnumb1+plrnumb2
+        plrnumbAll=sorted(plrnumbAll)
+    
+        if (len(plrnumbAll)) == 25:
+            print("УВАЖАЕМЫЕ ИГРОКИ! ИЗВИНИТЕ, НО БОЕВАЯ НИЧЬЯ!!!\nПОБЕДИЛА ДРУЖБА!! СПАСИБО ЗА ИГРУ!!")
             sys.exit(0)
-
-    el2 = el1+1
-    print (plrnumb2)
-    print (el2)
-    plrnumbAll= plrnumb1+plrnumb2
-    plrnumbAll=sorted(plrnumbAll)
-    print (plrnumbAll)
-    print (len(all1))
-    print (len(plrnumbAll))
-    if el2>=5:
-        print("УВАЖАЕМЫЕ ИГРОКИ! ИЗВИНИТЕ, НО БОЕВАЯ НИЧЬЯ!!!\nПОБЕДИЛА ДРУЖБА!! СПАСИБО ЗА ИГРУ!!")
-        sys.exit(0)
             
     
+if ident ==2:
+    pole(all1)
+    for i in range (1,26):
+        num = 0
+        num = (input("Игрок_"+plrname1+ "_введите номер ячейки, куда хотите поставить_" + plrchar1+"_: "))
+
+        priznak = False
+        while priznak==False:
+            if num.isnumeric()==True and plrnumbAll.count(int(num)) == 0 and int(num)<=25 and int(num)>0:
+               priznak=True
+            else:
+                if num == "Q" or num == "q":
+                    print("СПАСИБО ЗА ИГРУ!!\n ДО НОВЫХ ВСТРЕЧ")
+                    sys.exit(0)
+                priznak = False
+                print ()
+                print ("Ошибка ввода номера ячейки:")
+                print ("-Было введено не число\n-Эта ячейка уже занята\n-Введенное значение вне допустимого диапазона")
+                print ("Повторите ввод")
+                print ()
+                pole(all1)
+            
+                num = (input("Игрок_"+plrname1+ "_введите номер ячейки, куда хотите поставить_" + plrchar1+"_: "))
+
+        num = int(num)
+
+        all1[num-1]=plrchar1
+
+        pole(all1)
+
+        plrnumb1.append(int(num))
+        plrnumb1=sorted(plrnumb1)
+        for el5 in range (0,12):
+            if set(viigrAll[int(el5)]).issubset(plrnumb1)==True:# Входит ли list_1 в list_2 ?
+                print ("ИГРОК "+ plrname1 + " ПОЗДРАВЛЯЕМ ВАС! ВЫ ВЫИГРАЛИ!!! УРА!!!")
+                print("СПАСИБО ЗА ИГРУ!!\n ДО НОВЫХ ВСТРЕЧ")
+                sys.exit(0)
+        plrnumbAll= plrnumb1+plrnumb2
+        plrnumbAll=sorted(plrnumbAll)
+    
+        if (len(plrnumbAll)) == 25:
+            print("УВАЖАЕМЫЕ ИГРОКИ! ИЗВИНИТЕ, НО БОЕВАЯ НИЧЬЯ!!!\nПОБЕДИЛА ДРУЖБА!! СПАСИБО ЗА ИГРУ!!\n ДО НОВЫХ ВСТРЕЧ")
+            sys.exit(0)
+    
+
+        num = 0
+        num = random.randint(0, 26)
+    
+        priznak = False
+        while priznak==False:
+            if plrnumbAll.count(int(num)) == 0 and int(num)<=25 and int(num)>0:
+               priznak=True
+            else:
+                num = random.randint(0, 26)
+
+        num = int(num)
+        all1[num-1]=plrchar2
+
+        print("Компьютерный Игрок_"+plrname2+ "_совершил ход")
+
+        pole(all1)
+
+        plrnumb2.append(int(num))
+        plrnumb2=sorted(plrnumb2)
+        for el4 in range (0,12):
+            if set(viigrAll[int(el4)]).issubset(plrnumb2)==True:# Входит ли list_1 в list_2 ?
+                print ("ИГРОК "+ plrname2 + " ПОЗДРАВЛЯЕМ ВАС! ВЫ ВЫИГРАЛИ!!! УРА!!!")
+                print("СПАСИБО ЗА ИГРУ!!\n ДО НОВЫХ ВСТРЕЧ")
+                sys.exit(0)
+
+        plrnumbAll= plrnumb1+plrnumb2
+        plrnumbAll=sorted(plrnumbAll)
+    
+        if (len(plrnumbAll)) == 25:
+            print("УВАЖАЕМЫЕ ИГРОКИ! ИЗВИНИТЕ, НО БОЕВАЯ НИЧЬЯ!!!\nПОБЕДИЛА ДРУЖБА!! СПАСИБО ЗА ИГРУ!!\n ДО НОВЫХ ВСТРЕЧ")
+            sys.exit(0)
         
+if ident ==3:
+    
+    for i in range (1,26):
+
+        num = 0
+        num = random.randint(0, 26)
+        priznak = False
+        while priznak==False:
+            if plrnumbAll.count(int(num)) == 0 and int(num)<=25 and int(num)>0:
+               priznak=True
+            else:
+                num = random.randint(0, 26)
+
+        num = int(num)
+        all1[num-1]=plrchar1
+
+        print("Компьютерный Игрок_"+plrname1+ "_совершил ход")
+
+        pole(all1)
+
+        time.sleep(2) #задержка в течение  секунд
+
+        plrnumb1.append(int(num))
+        plrnumb1=sorted(plrnumb1)
+
+        for el5 in range (0,12):
+            if set(viigrAll[int(el5)]).issubset(plrnumb1)==True:# Входит ли list_1 в list_2 ?
+                print ("ИГРОК "+ plrname1 + " ПОЗДРАВЛЯЕМ ВАС! ВЫ ВЫИГРАЛИ!!! УРА!!!")
+                print("СПАСИБО ЗА ИГРУ!!\n ДО НОВЫХ ВСТРЕЧ")
+                sys.exit(0)
+        plrnumbAll= plrnumb1+plrnumb2
+        plrnumbAll=sorted(plrnumbAll)
+    
+        if (len(plrnumbAll)) == 25:
+            print("УВАЖАЕМЫЕ ИГРОКИ! ИЗВИНИТЕ, НО БОЕВАЯ НИЧЬЯ!!!\nПОБЕДИЛА ДРУЖБА!! СПАСИБО ЗА ИГРУ!!\n ДО НОВЫХ ВСТРЕЧ")
+            sys.exit(0)
+    
+
+        num = 0
+        num = random.randint(0, 26)
+    
+        priznak = False
+        while priznak==False:
+            if plrnumbAll.count(int(num)) == 0 and int(num)<=25 and int(num)>0:
+               priznak=True
+            else:
+                num = random.randint(0, 26)
+
+        num = int(num)
+        all1[num-1]=plrchar2
+
+        print("Компьютерный Игрок_"+plrname2+ "_совершил ход")
+
+        pole(all1)
+        
+        time.sleep(2) #задержка в течение  секунд
+
+        plrnumb2.append(int(num))
+        plrnumb2=sorted(plrnumb2)
+        for el4 in range (0,12):
+            if set(viigrAll[int(el4)]).issubset(plrnumb2)==True:# Входит ли list_1 в list_2 ?
+                print ("ИГРОК "+ plrname2 + " ПОЗДРАВЛЯЕМ ВАС! ВЫ ВЫИГРАЛИ!!! УРА!!!")
+                print("СПАСИБО ЗА ИГРУ!!\n ДО НОВЫХ ВСТРЕЧ")
+                sys.exit(0)
+
+        plrnumbAll= plrnumb1+plrnumb2
+        plrnumbAll=sorted(plrnumbAll)
+    
+        if (len(plrnumbAll)) == 25:
+            print("УВАЖАЕМЫЕ ИГРОКИ! ИЗВИНИТЕ, НО БОЕВАЯ НИЧЬЯ!!!\nПОБЕДИЛА ДРУЖБА!! СПАСИБО ЗА ИГРУ!!\n ДО НОВЫХ ВСТРЕЧ")
+            sys.exit(0)
